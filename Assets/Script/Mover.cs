@@ -84,9 +84,6 @@ public class Mover : MonoBehaviour
         if(takeDame.isDead){
             deathSound.Play();
         }
-        
-
-
 
         if (horizontalInput == 0)
         {
@@ -249,4 +246,8 @@ public class Mover : MonoBehaviour
 
 
     }
+}
+
+public class Audio : MonoBehaviour{
+
 }

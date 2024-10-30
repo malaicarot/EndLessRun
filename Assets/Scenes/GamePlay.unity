@@ -154,11 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseBtn: {fileID: 1822083951}
   pauseMenus: {fileID: 1462345221}
-  ScorePanel: {fileID: 0}
-  GameOverText: {fileID: 0}
+  ScorePanel: {fileID: 548110311}
+  GameOverText: {fileID: 548110313}
   mainGameSceneName: GamePlay
   mainMenusSceneName: Start
-  mainEndMenusSceneName: End
+  EndMenusSceneName: End
 --- !u!4 &96532542
 Transform:
   m_ObjectHideFlags: 0
@@ -2706,7 +2706,7 @@ MonoBehaviour:
   - 0.05
   - 0.3
   SEGMENT_QUANTITY: 50
-  numberOfLevels: 2
+  numberOfLevels: 3
 --- !u!1 &1719416416
 GameObject:
   m_ObjectHideFlags: 0

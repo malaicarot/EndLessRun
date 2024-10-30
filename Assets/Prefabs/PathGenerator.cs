@@ -33,7 +33,6 @@ public class PathGenerator : MonoBehaviour
 
     private Vector3 lavaSpawnPoint;
 
-
     private Quaternion nextRotation = Quaternion.identity;
     private Quaternion currentRotation = Quaternion.identity;
 
@@ -51,11 +50,18 @@ public class PathGenerator : MonoBehaviour
 
     private Mover player;
 
+
+    private int _score;
+    public int score => _score;
+
     void Start()
     {
         player = FindObjectOfType<Mover>();
         Spawner();
     }
+
+    
+
 
     void Spawner()
     {
@@ -90,12 +96,21 @@ public class PathGenerator : MonoBehaviour
     {
         GameObject newSegment = Instantiate(planeType, nextSpawnPoint, nextRotation);
         PlaneController SegmentController = newSegment.GetComponent<PlaneController>();
+
+        SegmentController.Init(() => {
+            // if isPlaneAddCoins 
+            // Add coins
+            // if isTrap
+            // Trap Active
+
+        });
+
         if (newLevel)
         {
             Instantiate(EnterBanner, nextSpawnPoint, nextRotation);
         }
         if(_isDestination){
-            GameObject destination = Instantiate(Destination, nextSpawnPoint, Quaternion.identity);
+            Instantiate(Destination, nextSpawnPoint, Quaternion.identity);
         }
 
 
@@ -257,6 +272,7 @@ public class PathGenerator : MonoBehaviour
             Instantiate(ObstaclePrefabs, spawnDirection + new Vector3(0f, 3f, 0f), RotateOfPlane);
         }
     }
+    
     void SpawnCoins(Vector3 spawnDirection, Quaternion RotateOfPlane)
     {
         float SpanwCoinsRate = 0.8f;

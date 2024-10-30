@@ -14,12 +14,16 @@ public class PauseMenusController : MonoBehaviour
     [SerializeField] TextMeshProUGUI GameOverText;
     public string mainGameSceneName = "GamePlay";
     public string mainMenusSceneName = "Start";
-    public string mainEndMenusSceneName = "End";
+    public string EndMenusSceneName = "End";
 
-    void Start(){
-        GameOver();
+    void Start()
+    {
+
+        if (SceneManager.GetActiveScene().name == "End")
+        {
+            GameOver();
+        }
     }
-
 
     public void StartGame()
     {
@@ -34,8 +38,8 @@ public class PauseMenusController : MonoBehaviour
 
     public void GameOverMenus()
     {
-        SceneManager.LoadScene(mainEndMenusSceneName);
-        
+        SceneManager.LoadScene(EndMenusSceneName);
+
     }
 
     public void ActivePauseMenus()
@@ -76,7 +80,8 @@ public class PauseMenusController : MonoBehaviour
 #endif
     }
 
-    private void GameOver(){
+    private void GameOver()
+    {
         GameOverText.text = $"Your Score: {ScoreManagement.score}";
     }
 

@@ -32,8 +32,16 @@ public class PlaneController : MonoBehaviour
         RotateTriggerBox.SetActive(isActive);
 
     }
-    public void Init(Action _trapAction){
-        trapAction = _trapAction;
 
+    public void Init(Action _trapAction){
+
+        trapAction = _trapAction;
+        
+    }
+
+    void OnTriggerEnter(Collider other){
+        if(other.CompareTag("Player")){
+            trapAction?.Invoke();
+        }
     }
 }
